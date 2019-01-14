@@ -1,0 +1,69 @@
+(define (problem problema-logistica)
+	(:domain transporte)
+	(:objects
+		p1 p2 - paquete
+		c1 c2 - camion
+		d1 d2 - driver
+		A B C D E - ciudad
+	)
+	(:init
+		(at p1 A)
+		(at p2 D)
+		(at c1 A)
+		(at c2 A)
+		(at d1 C)
+		(at d2 D)
+		(= (distance A A) 0)
+		(= (distance A B) 5)
+		(= (distance A C) 3)
+
+		(= (distance B B) 0)
+		(= (distance B A) 5)
+		(= (distance B C) 3)
+		(= (distance B D) 2)
+		(= (distance B E) 4)
+		
+		(= (distance C A) 3)
+		(= (distance C B) 3)
+		(= (distance C C) 0)
+		(= (distance C E) 8)
+		
+		(= (distance D D) 0)
+		(= (distance D B) 2)
+		
+		(= (distance E C) 8)
+		(= (distance E B) 4)
+		(= (distance E E) 0)
+
+		(= (coste A A) 0)
+		(= (coste A B) 2)
+		(= (coste A C) 1)
+
+		(= (coste B B) 0)
+		(= (coste B A) 2)
+		(= (coste B C) 1)
+		(= (coste B D) 2)
+		(= (coste B E) 3)
+		
+		(= (coste C A) 1)
+		(= (coste C B) 1)
+		(= (coste C C) 0)
+		(= (coste C E) 5)
+		
+		(= (coste D D) 0)
+		(= (coste D B) 2)
+		
+		(= (coste E C) 5)
+		(= (coste E B) 3)
+		(= (coste E E) 0)
+
+		
+		(= (coste-total) 0)
+	)
+	(:goal (and (at p1 E)
+		(at p2 C)
+		(at c2 A)
+		(at d1 B))
+	)
+	(:metric minimize (+ (* 0.1 (total-time))(* 0.2 (coste-total))))
+)
