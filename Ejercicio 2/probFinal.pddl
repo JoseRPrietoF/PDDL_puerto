@@ -1,11 +1,11 @@
 (define (problem puerto)
 	(:domain puerto)
 	(:objects
-		m1,m2 - muelle
-		ct1,ct2 - cinta
-		g1,g2 - grua
-		p11,p12,p13,p21,p22,p23 - pila
-		c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11 - contenedor
+		m1 m2 - muelle
+		ct1 ct2 - cinta
+		g1 g2 - grua
+		p11 p12 p13 p21 p22 p23 - pila
+		c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 - contenedor
 )
 	(:init
 		;Definimos el peso de las cajas

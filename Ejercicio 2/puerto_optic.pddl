@@ -25,7 +25,7 @@
 			 
 	(:durative-action coger
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
-		:duration (= ?duration (/ (peso ?c) (altura ?p) ))
+		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
         :condition (and  
 						(at start	(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(at start	(in ?g ?m)) ;Si la grua estan en el mismo muelle
@@ -48,7 +48,7 @@
 	
 	(:durative-action soltar
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
-		:duration (= ?duration (/ (peso ?c) (altura ?p) ))
+		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
         :condition (and
 						(at start(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(at start(in ?g ?m)) ;Si las pilas estan en el mismo muelle
@@ -70,7 +70,7 @@
 	
 	(:durative-action solta_especial
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
-		:duration (= ?duration (/ (peso ?c) (altura ?p) ))
+		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
         :condition (and
 						(at start(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(at start(in ?g ?m)) ;Si las pilas estan en el mismo muelle

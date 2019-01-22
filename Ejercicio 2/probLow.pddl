@@ -4,8 +4,8 @@
 		m1 - muelle
 		ct1 - cinta
 		g1 - grua
-		p11,p12,p13 - pila
-		c1,c2,c3,c4,c5- contenedor
+		p11 p12 p13 - pila
+		c1 c2 c3 c4 c5 - contenedor
 )
 	(:init
 		;Definimos el peso de las cajas
@@ -44,11 +44,11 @@
 		(=(altura p11) 2) 
 		; ______ PILA 2 ______
 		(at c2 p12)
-		(at c15 p12)
+		(at c5 p12)
 		; ______
 		(on c2 p12)
-		(on c5 c9)
-		(top c15 m1)
+		(on c5 c2)
+		(top c5 m1)
 		(=(altura p12) 2) 
 		; ______ PILA 3 ______
 		(at c3 p13)
