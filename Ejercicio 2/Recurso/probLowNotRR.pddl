@@ -8,9 +8,7 @@
 		c1 c2 c3 c4 c5 - contenedor
 )
 	(:init
-		;Definimos el recurso
-		(= (steps) 10)
-		
+		(= (gasolina) 100)
 		;Definimos el peso de las cajas
 		(= (peso c1) 1)(= (peso c2) 1)
 		(= (peso c3) 1)(= (peso c4) 1)
@@ -76,5 +74,5 @@
 		)
 	)
 	;(:metric minimize (total-time))
-	(:metric minimize (steps))
+	(:metric minimize (gasolina))
 )
