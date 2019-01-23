@@ -27,7 +27,7 @@
 	(:durative-action coger
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
 		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
-        :condition (and (at start	(>= (gasolina) 0))
+        :condition (and (at start	(> (gasolina) 5))
 						(at start	(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(at start	(in ?g ?m)) ;Si la grua estan en el mismo muelle
 						(at start	(top ?c ?m)) ;Si el  contenedor esta en el tope de la pila de origen
@@ -51,7 +51,7 @@
 	(:durative-action soltar
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
 		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
-        :condition (and (at start	(>= (gasolina) 0))
+        :condition (and (at start	(>= (gasolina) 5))
 						(at start(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(at start(in ?g ?m)) ;Si las pilas estan en el mismo muelle
 						(at start(top ?base ?m)) ; escogemos el contenedr dell top
@@ -74,7 +74,7 @@
 	(:durative-action solta_especial
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
 		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
-        :condition (and (at start	(>= (gasolina) 0))
+        :condition (and (at start	(> (gasolina) 5))
 						(at start(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(at start(in ?g ?m)) ;Si las pilas estan en el mismo muelle
 						(at start(isgoal ?c)) ; si la base es goal
@@ -97,7 +97,7 @@
 	(:durative-action coger_desde_cinta
         :parameters (?c - contenedor ?ct - cinta ?m - muelle ?g - grua)
 		:duration (= ?duration (+ (/ (distancia ?ct) (velocidad ?ct)) (peso ?c))); tiempo en recorrer la cinta + el tiempo de cogerla
-        :condition (and (at start	(>= (gasolina) 0))
+        :condition (and (at start	(> (gasolina) 10))
 						(at start(in ?g ?m)) ; La grua esta en el mismo muelle
 						(at start(at ?c ?ct)) ; el contenedor esta en la cinta
 						(at start(notCinta ?ct ?m)) ; y no es la cinta de tu muelle
@@ -117,7 +117,7 @@
 	(:durative-action mover_a_cinta
         :parameters (?c - contenedor ?ct - cinta ?m - muelle ?g - grua)
 		:duration (= ?duration (+ (/ (distancia ?ct) (velocidad ?ct)) (peso ?c))) ; tiempo en recorrer la cinta + el tiempo de cogerla
-        :condition (and (at start	(>= (gasolina) 0))
+        :condition (and (at start	(> (gasolina) 10))
 						(at start(in ?ct ?m)) ; Si el muelle y la cinta se corresponden
 						(at start(in ?g ?m)) ; La grua esta en el mismo muelle
 						(at start(not_ocupada ?ct)) ; la cinta no esta ocupada
