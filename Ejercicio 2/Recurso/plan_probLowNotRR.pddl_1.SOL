@@ -1,0 +1,24 @@
+
+; Version LPG-td-1.0
+; Seed 88047763
+; Command line: /data2/jose/PIN/PDDL_puerto/PLANIFICADORES//lpg-td-1.0 -o puertoRR.pddl -f probLowNotRR.pddl -n 1 
+; Problem probLowNotRR.pddl
+; Time 0.00
+; Search time 0.00
+; Parsing time 0.00
+; Mutex time 0.00
+; MetricValue 1.20
+
+0.0003:   (RECARGAR G1) [1.0000]
+1.0005:   (COGER P13 C3 P13 M1 G1) [2.0000]
+3.0008:   (RECARGAR G1) [1.0000]
+4.0010:   (SOLTA_ESPECIAL C4 C3 P12 M1 G1) [1.0000]
+5.0012:   (COGER C2 C5 P11 M1 G1) [1.0000]
+6.0015:   (SOLTAR P13 C5 P11 M1 G1) [2.0000]
+8.0017:   (RECARGAR G1) [1.0000]
+9.0022:   (RECARGAR G1) [1.0000]
+10.0025:   (MOVER_A_CINTA C5 CT1 M1 G1) [3.0000]
+13.0028:   (RECARGAR G1) [1.0000]
+14.0030:   (COGER C1 C4 P11 M1 G1) [1.0000]
+
+
