@@ -26,13 +26,10 @@
 	(:durative-action recargar
 		:parameters (?g - grua)
 		:duration (= ?duration 1)
-        :condition (and  (at start(< (gasolina ?g) 90) ))
-        :effect (and 
-			(at end (increase (gasolina ?g) 10 ))
-        )
+        :condition (and (at start(<= (gasolina ?g) 100)) (at start(>= (gasolina ?g) 0)) )
+        :effect (and (at end(increase (gasolina ?g) 5)))
 	)
-	
- 
+
 	(:durative-action coger
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
 		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
@@ -53,8 +50,8 @@
 				   (at start(top ?base ?m))
 				   (at start(holding ?g ?c))
 				   (at end(decrease (altura ?p) 1 ))
-				   (at start   (decrease (gasolina ?g) 5) )
-				   (at start   (increase (total-gas-used) 5) )
+				   (at end   (decrease (gasolina ?g) 5) )
+				   (at end   (increase (total-gas-used) 5) )
 				)
 	)
 	
@@ -64,7 +61,7 @@
         :condition (and (at start	(>= (gasolina ?g) 5))
 						(at start(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(at start(in ?g ?m)) ;Si las pilas estan en el mismo muelle
-						(at start(top ?base ?m)) ; escogemos el contenedr dell top
+						(at start(top ?base ?m)) ; escogemos el contenedr del top
 						(at start(holding ?g ?c)) ; grua tiene c
 						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
 						(at start   (>= (altura ?p) 1) )
@@ -77,8 +74,8 @@
 				   (at start(on ?c ?base))
 				   (at start(not (top ?base ?m)))
 				   (at end(increase (altura ?p) 1))
-				   (at start   (decrease (gasolina ?g ) 5) )
-				   (at start   (increase (total-gas-used ) 5) )
+				   (at end   (decrease (gasolina ?g ) 5) )
+				   (at end   (increase (total-gas-used ) 5) )
 				)
 	)
 	
@@ -100,9 +97,9 @@
 				   (at start(at ?c ?p))
 				   (at start(top ?c ?m))
 				   (at start(on ?c ?base))
-				   (at end(increase (altura ?p) 1))
-				   (at start   (decrease (gasolina ?g) 5) )
-				   (at start   (increase (total-gas-used) 5) )
+				   (at end	 (increase (altura ?p) 1))
+				   (at end   (decrease (gasolina ?g) 5) )
+				   (at end   (increase (total-gas-used) 5) )
 				)
 	)
 	
@@ -122,8 +119,8 @@
 					(at start(not(ocupada ?ct)))
 					(at start(holding ?g ?c))
 					(at start(not(at ?c ?ct))) ; El contenedor ya no esta en la cinta
-				    (at start   (decrease (gasolina ?g) 10) )
-				    (at start   (increase (total-gas-used) 10) )
+				    (at end   (decrease (gasolina ?g) 10) )
+				    (at end   (increase (total-gas-used) 10) )
 				)
 	)
 	
@@ -142,10 +139,10 @@
 					(at start(not(not_ocupada ?ct)))
 					(at start(not(holding ?g ?c)))
 					(at start(vacia ?g))
-					(at start   (decrease (gasolina ?g) 10) )
-					(at start   (increase (total-gas-used) 10) )
+					(at end   (decrease (gasolina ?g) 10) )
+					(at end   (increase (total-gas-used) 10) )
 				)
 	)
 		
-        
+
 )

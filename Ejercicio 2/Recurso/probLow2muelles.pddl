@@ -9,6 +9,8 @@
 )
 	(:init
 		(= (gasolina g1) 100)
+		(= (gasolina g2) 100)
+		(= (total-gas-used) 0)
 		;Definimos el peso de las cajas
 		(= (peso c1) 1)(= (peso c2) 1)
 		(= (peso c3) 1)(= (peso c4) 1)
@@ -97,6 +99,5 @@
 			(top c3 m1)
 		)
 	)
-	(:metric minimize (total-time))
-	;(:metric minimize (total-gas-used))
+	(:metric minimize (total-gas-used))
 )
