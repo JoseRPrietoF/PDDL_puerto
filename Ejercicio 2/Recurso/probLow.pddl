@@ -72,7 +72,7 @@
 			(top c1 p11)
 			(top c2 p12)
 			(top c3 p13)
-			(vacia g1)
+			;(vacia g1)
 			;(not_ocupada ct1)
 		)
 	)

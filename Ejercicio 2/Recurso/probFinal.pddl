@@ -61,7 +61,7 @@
 		; ______
 		(on c1 p11)
 		(on c7 c1)
-		(top c7 m1)
+		(top c7 p11)
 		(=(altura p11) 2) 
 		; ______ PILA 2 ______
 		(at c9 p12)
@@ -69,13 +69,13 @@
 		; ______
 		(on c9 p12)
 		(on c10 c9)
-		(top c10 m1)
+		(top c10 p12)
 		(=(altura p12) 2) 
 		; ______ PILA 3 ______
 		(at c11 p13)
 		; ______
 		(on c11 p13)
-		(top c11 m1)
+		(top c11 p13)
 		(=(altura p13) 1) 
 		
 		
@@ -86,7 +86,7 @@
 		; ______
 		(on c4 p21)
 		(on c8 c4)
-		(top c8 m2)
+		(top c8 p21)
 		(=(altura p21) 2) 
 		; ______ PILA 2
 		(at c2 p22)
@@ -96,13 +96,13 @@
 		(on c5 p22)
 		(on c3 c5)
 		(on c2 c3)
-		(top c2 m2)
+		(top c2 p22)
 		(=(altura p22) 3) 
 		; ______ PILA 3
 		(at c6 p23)
 		; ______
 		(on c6 p23)
-		(top c6 m2)
+		(top c6 p23)
 		(=(altura p23) 1) 
 		
 
@@ -114,9 +114,9 @@
 	
 	(:goal 
 		(and 
-			(top c4 m1)
-			(top c3 m1)
-			(top c7 m1)
+			(top c4 p12)
+			(top c3 p13)
+			(top c7 p23)
 			(vacia g1)
 			(vacia g2)
 			(not_ocupada ct1)
