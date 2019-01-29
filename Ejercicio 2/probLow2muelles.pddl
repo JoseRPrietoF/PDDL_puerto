@@ -70,15 +70,15 @@
 		
 		; ------ MUELLE 2
 		; ______ PILA 21 ______
-
+		(top p21 p21)
 
 		(=(altura p21) 0) 
 		; ______ PILA 22 ______
-
+		(top p22 p22)
 
 		(=(altura p22) 0) 
 		; ______ PILA 23 ______
-
+		(top p23 p23)
 		(=(altura p23) 0) 
 		
 		
@@ -94,10 +94,10 @@
 			(top c1 p11)
 			(top c2 p12)
 			(top c3 p13)
-			(vacia g1)
-			(vacia g2)
-			(not_ocupada ct1)
-			(not_ocupada ct2)
+			;(vacia g1)
+			;(vacia g2)
+			;(not_ocupada ct1)
+			;(not_ocupada ct2)
 		)
 	)
 	(:metric minimize (total-time))
