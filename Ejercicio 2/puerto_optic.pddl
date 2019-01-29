@@ -27,73 +27,73 @@
 			 
 	(:durative-action coger
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
-		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
+		:duration (= ?duration (-(+(*(peso ?c) (maxaltura ?m)) 1) (*(peso ?c) (altura?p)) ))
         :condition (and
 						(over all	(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(over all	(in ?g ?m)) ;Si la grua estan en el mismo muelle
-						(over all	(top ?c ?p)) ;Si el  contenedor esta en el tope de la pila de origen
-						(over all	(on ?c ?base)) ; seleccionamos lo que hay debajo para cambiar despues
+						(at start	(top ?c ?p)) ;Si el  contenedor esta en el tope de la pila de origen
+						(at start	(on ?c ?base)) ; seleccionamos lo que hay debajo para cambiar despues
 						(at start	(vacia ?g)) ; grua esta libre
-						(over all	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
-						(over all   (>= (altura ?p) 1) )
+						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(at start   (>= (altura ?p) 1) )
 					)
         :effect (and
-				   (at end 		(not(vacia ?g)))
-				   (at end 		(not_vacia ?g))
-				   (at end 		(not(top ?c ?p)))
-				   (at start 	(not(on ?c ?base)))
-				   (at start 	(not (at ?c ?p)))
-				   (at end 		(top ?base ?p))
-				   (at start 	(holding ?g ?c))
-				   (at start 	(not(vacia ?g)))
+				   (at end	 	(not(vacia ?g)))
+				   (at end		(not_vacia ?g))
+				   (at end	 	(not(on ?c ?base)))
+				   (at end	 	(not (at ?c ?p)))
+				   (at end		(not(top ?c ?p)))
+				   (at end	 	(top ?base ?p))
+				   (at end	 	(holding ?g ?c))
+				   (at end	 	(not(vacia ?g)))
 				   (at end   	(decrease (altura ?p) 1 ))
 				)
 	)
 	
 	(:durative-action soltar
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
-		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
+		:duration (= ?duration (-(+(*(peso ?c) (maxaltura ?m)) 1)  (*(peso ?c) (altura?p)) ))
         :condition (and 
 						(over all	(in ?p ?m)) ;Si las pilas estan en el mismo muelle
 						(over all	(in ?g ?m)) ;Si las pilas estan en el mismo muelle
-						(over all	(top ?base ?p)) ; escogemos el contenedr dell top
+						(at start	(top ?base ?p)) ; escogemos el contenedr dell top
 						(over all	(holding ?g ?c)) ; grua tiene c
-						(over all	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
-						(over all   (>= (altura ?p) 1) )
-						(at start 	(not_vacia ?g))
+						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(at start   (>= (altura ?p) 1) )
+						(over all 	(not_vacia ?g))
 					)
         :effect ( and
-				   (at end(vacia ?g))
-				   (at end(not(not_vacia ?g)))
-				   (at start(not (holding ?g ?c)))
-				   (at start(at ?c ?p))
-				   (at start(on ?c ?base))
-				   (at end (top ?c ?p))
-				   (at end (not (top ?base ?p)))
-				   (at end (increase (altura ?p) 1))
+				   (at end	(vacia ?g))
+				   (at end	(not(not_vacia ?g)))
+				   (at end	(not (holding ?g ?c)))
+				   (at end	(at ?c ?p))
+				   (at end	(on ?c ?base))
+				   (at end 	(top ?c ?p))
+				   (at end 	(not (top ?base ?p)))
+				   (at end 	(increase (altura ?p) 1))
 				)
 	)
 	
 	(:durative-action solta_especial
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
-		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
+		:duration (= ?duration (-(+(*(peso ?c) (maxaltura ?m)) 1)  (*(peso ?c) (altura?p)) ))
         :condition (and
-						(over all(in ?p ?m)) ;Si las pilas estan en el mismo muelle
-						(over all(in ?g ?m)) ;Si las pilas estan en el mismo muelle
-						(over all(isgoal ?c)) ; si la base es goal
-						(over all(top ?base ?p)) ; escogemos el contenedr dell top
-						(over all(holding ?g ?c)) ; grua tiene c
-						(over all	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
-						(over all   (>= (altura ?p) 1) )
-						(at start 	(not_vacia ?g))
+						(over all	(in ?p ?m)) ;Si las pilas estan en el mismo muelle
+						(over all	(in ?g ?m)) ;Si las pilas estan en el mismo muelle
+						(over all	(isgoal ?c)) ; si la base es goal
+						(at start	(top ?base ?p)) ; escogemos el contenedr dell top
+						(over all	(holding ?g ?c)) ; grua tiene c
+						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(at start   (>= (altura ?p) 1) )
+						(over all 	(not_vacia ?g))
 					)
         :effect (and
 				   (at end		(vacia ?g))
 				   (at end		(not(not_vacia ?g)))
-				   (at start	(not (holding ?g ?c)))
-				   (at start	(at ?c ?p))
-				   (at start	(top ?c ?p))
-				   (at start	(on ?c ?base))
+				   (at end		(not (holding ?g ?c)))
+				   (at end		(at ?c ?p))
+				   (at end		(top ?c ?p))
+				   (at end		(on ?c ?base))
 				   (at end		(increase (altura ?p) 1))
 				)
 	)
@@ -110,9 +110,9 @@
 					)
         :effect ( and
 					(at start   (not(vacia ?g)))
-					(at end		(not_vacia ?g))
-					(at start   (not_ocupada ?ct)) ; la cinta pasa a estar no ocupada
-					(at start   (not(ocupada ?ct)))
+					(at start	(not_vacia ?g))
+					(at end		(not_ocupada ?ct)) ; la cinta pasa a estar no ocupada
+					(at end		(not(ocupada ?ct)))
 					(at start   (holding ?g ?c))
 					(at start   (not(vacia ?g)))
 					(at start   (not(at ?c ?ct))) ; El contenedor ya no esta en la cinta
@@ -125,14 +125,14 @@
         :condition (and 
 						(over all (in ?ct ?m)) ; Si el muelle y la cinta se corresponden
 						(over all (in ?g ?m)) ; La grua esta en el mismo muelle
-						(at start (not_ocupada ?ct)) ; la cinta no esta ocupada
+						(over all (not_ocupada ?ct)) ; la cinta no esta ocupada
 						(over all (holding ?g ?c)) ; grua tiene c
-						(at start (not_vacia ?g))
+						(over all (not_vacia ?g))
 					)
         :effect (and
 					(at start	(at ?c ?ct)) ; el contenedor pasa a estar en la cinta
-					(at end		(ocupada ?ct)) ; la cinta pasa a estar ocupada
-					(at end		(not(not_ocupada ?ct)))
+					(at start	(ocupada ?ct)) ; la cinta pasa a estar ocupada
+					(at start	(not(not_ocupada ?ct)))
 					(at end		(not(holding ?g ?c)))
 					(at end		(vacia ?g))
 					(at end		(not(not_vacia ?g)))
