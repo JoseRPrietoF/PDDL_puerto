@@ -40,7 +40,7 @@
 		; ______
 		(on c1 p11)
 		(on c4 c1)
-		(top c4 m1)
+		(top c4 p11)
 		(=(altura p11) 2) 
 		; ______ PILA 2 ______
 		(at c2 p12)
@@ -48,13 +48,13 @@
 		; ______
 		(on c2 p12)
 		(on c5 c2)
-		(top c5 m1)
+		(top c5 p12)
 		(=(altura p12) 2) 
 		; ______ PILA 3 ______
 		(at c3 p13)
 		; ______
 		(on c3 p13)
-		(top c3 m1)
+		(top c3 p13)
 		(=(altura p13) 1) 
 		
 		
@@ -67,9 +67,11 @@
 	
 	(:goal 
 		(and 
-			(top c1 m1)
-			(top c2 m1)
-			(top c3 m1)
+			(top c1 p11)
+			(top c2 p12)
+			(top c3 p13)
+			;(vacia g1)
+			;(not_ocupada ct1)
 		)
 	)
 	(:metric minimize (total-time))

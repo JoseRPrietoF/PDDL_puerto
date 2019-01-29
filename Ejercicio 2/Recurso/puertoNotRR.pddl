@@ -130,7 +130,7 @@
 	(:durative-action mover_a_cinta
         :parameters (?c - contenedor ?ct - cinta ?m - muelle ?g - grua)
 		:duration (= ?duration (+ (/ (distancia ?ct) (velocidad ?ct)) (peso ?c))) ; tiempo en recorrer la cinta + el tiempo de cogerla
-        :condition (and (over all	(> (gasolina ?g) 10))
+        :condition (and (at start (> (gasolina ?g) 10))
 						(over all (in ?ct ?m)) ; Si el muelle y la cinta se corresponden
 						(over all (in ?g ?m)) ; La grua esta en el mismo muelle
 						(at start (not_ocupada ?ct)) ; la cinta no esta ocupada
@@ -142,8 +142,8 @@
 					(at end		(ocupada ?ct)) ; la cinta pasa a estar ocupada
 					(at end		(not(not_ocupada ?ct)))
 					(at end		(not(holding ?g ?c)))
-					(at start	(vacia ?g))
-					(at start	(not(not_vacia ?g)))
+					(at end		(vacia ?g))
+					(at end		(not(not_vacia ?g)))
 					(at start   (decrease (gasolina ?g) 10) )
 					(at start   (increase (total-gas-used) 10) )
 				)
