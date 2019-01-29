@@ -26,30 +26,30 @@
 	(:durative-action recargar
 		:parameters (?g - grua)
 		:duration (= ?duration 1)
-        :condition (and (at start(<= (gasolina ?g) 100)) (at start(>= (gasolina ?g) 0)) )
+        :condition (and (over all(<= (gasolina ?g) 100)) (at start(>= (gasolina ?g) 0)) )
         :effect (and (at end(increase (gasolina ?g) 5)))
 	)
 
 	(:durative-action coger
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
 		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
-        :condition (and (at start	(> (gasolina ?g) 5))
-						(at start	(in ?p ?m)) ;Si las pilas estan en el mismo muelle
-						(at start	(in ?g ?m)) ;Si la grua estan en el mismo muelle
-						(at start	(top ?c ?m)) ;Si el  contenedor esta en el tope de la pila de origen
-						(at start	(on ?c ?base)) ; seleccionamos lo que hay debajo para cambiar despues
-						(at start	(vacia ?g)) ; grua esta libre
-						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
-						(at start   (>= (altura ?p) 1) )
+        :condition (and (over all	(> (gasolina ?g) 5))
+						(over all	(in ?p ?m)) ;Si las pilas estan en el mismo muelle
+						(over all	(in ?g ?m)) ;Si la grua estan en el mismo muelle
+						(over all	(top ?c ?m)) ;Si el  contenedor esta en el tope de la pila de origen
+						(over all	(on ?c ?base)) ; seleccionamos lo que hay debajo para cambiar despues
+						(over all	(vacia ?g)) ; grua esta libre
+						(over all	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(over all   (>= (altura ?p) 1) )
 					)
         :effect (and
-				   (at start(not(vacia ?g)))
-				   (at start(not(top ?c ?m)))
-				   (at start(not(on ?c ?base)))
-				   (at start(not (at ?c ?p)))
-				   (at start(top ?base ?m))
-				   (at start(holding ?g ?c))
-				   (at end(decrease (altura ?p) 1 ))
+				   (at start (not(vacia ?g)))
+				   (at start (not(top ?c ?m)))
+				   (at start (not(on ?c ?base)))
+				   (at start (not (at ?c ?p)))
+				   (at start (top ?base ?m))
+				   (at start (holding ?g ?c))
+				   (at end   (decrease (altura ?p) 1 ))
 				   (at end   (decrease (gasolina ?g) 5) )
 				   (at end   (increase (total-gas-used) 5) )
 				)
@@ -58,13 +58,13 @@
 	(:durative-action soltar
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
 		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
-        :condition (and (at start	(>= (gasolina ?g) 5))
-						(at start(in ?p ?m)) ;Si las pilas estan en el mismo muelle
-						(at start(in ?g ?m)) ;Si las pilas estan en el mismo muelle
-						(at start(top ?base ?m)) ; escogemos el contenedr del top
-						(at start(holding ?g ?c)) ; grua tiene c
-						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
-						(at start   (>= (altura ?p) 1) )
+        :condition (and (over all	(>= (gasolina ?g) 5))
+						(over all   (in ?p ?m)) ;Si las pilas estan en el mismo muelle
+						(over all   (in ?g ?m)) ;Si las pilas estan en el mismo muelle
+						(over all   (top ?base ?m)) ; escogemos el contenedr del top
+						(over all   (holding ?g ?c)) ; grua tiene c
+						(over all	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(over all   (>= (altura ?p) 1) )
 					)
         :effect ( and
 				   (at start(vacia ?g))
@@ -82,14 +82,14 @@
 	(:durative-action solta_especial
         :parameters (?base - (either pila contenedor) ?c - contenedor ?p - pila ?m - muelle ?g - grua)
 		:duration (= ?duration (-(*(peso ?c) (maxaltura ?m)) (*(peso ?c) (altura?p)) ))
-        :condition (and (at start	(> (gasolina ?g) 5))
-						(at start(in ?p ?m)) ;Si las pilas estan en el mismo muelle
-						(at start(in ?g ?m)) ;Si las pilas estan en el mismo muelle
-						(at start(isgoal ?c)) ; si la base es goal
-						(at start(top ?base ?m)) ; escogemos el contenedr dell top
-						(at start(holding ?g ?c)) ; grua tiene c
-						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
-						(at start   (>= (altura ?p) 1) )
+        :condition (and (over all	(> (gasolina ?g) 5))
+						(over all(in ?p ?m)) ;Si las pilas estan en el mismo muelle
+						(over all(in ?g ?m)) ;Si las pilas estan en el mismo muelle
+						(over all(isgoal ?c)) ; si la base es goal
+						(over all(top ?base ?m)) ; escogemos el contenedr dell top
+						(over all(holding ?g ?c)) ; grua tiene c
+						(over all	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(over all   (>= (altura ?p) 1) )
 					)
         :effect (and
 				   (at start(vacia ?g))
@@ -106,12 +106,12 @@
 	(:durative-action coger_desde_cinta
         :parameters (?c - contenedor ?ct - cinta ?m - muelle ?g - grua)
 		:duration (= ?duration (+ (/ (distancia ?ct) (velocidad ?ct)) (peso ?c))); tiempo en recorrer la cinta + el tiempo de cogerla
-        :condition (and (at start	(> (gasolina ?g) 10))
-						(at start(in ?g ?m)) ; La grua esta en el mismo muelle
-						(at start(at ?c ?ct)) ; el contenedor esta en la cinta
-						(at start(notCinta ?ct ?m)) ; y no es la cinta de tu muelle
-						(at start(ocupada ?ct))
-						(at start(vacia ?g))
+        :condition (and (over all	(> (gasolina ?g) 10))
+						(over all(in ?g ?m)) ; La grua esta en el mismo muelle
+						(over all(at ?c ?ct)) ; el contenedor esta en la cinta
+						(over all(notCinta ?ct ?m)) ; y no es la cinta de tu muelle
+						(over all(ocupada ?ct))
+						(over all(vacia ?g))
 					)
         :effect ( and
 					(at start(not(vacia ?g)))
@@ -127,11 +127,11 @@
 	(:durative-action mover_a_cinta
         :parameters (?c - contenedor ?ct - cinta ?m - muelle ?g - grua)
 		:duration (= ?duration (+ (/ (distancia ?ct) (velocidad ?ct)) (peso ?c))) ; tiempo en recorrer la cinta + el tiempo de cogerla
-        :condition (and (at start	(> (gasolina ?g) 10))
-						(at start(in ?ct ?m)) ; Si el muelle y la cinta se corresponden
-						(at start(in ?g ?m)) ; La grua esta en el mismo muelle
-						(at start(not_ocupada ?ct)) ; la cinta no esta ocupada
-						(at start(holding ?g ?c)) ; grua tiene c
+        :condition (and (over all	(> (gasolina ?g) 10))
+						(over all(in ?ct ?m)) ; Si el muelle y la cinta se corresponden
+						(over all(in ?g ?m)) ; La grua esta en el mismo muelle
+						(over all(not_ocupada ?ct)) ; la cinta no esta ocupada
+						(over all(holding ?g ?c)) ; grua tiene c
 					)
         :effect (and
 					(at start(at ?c ?ct)) ; el contenedor pasa a estar en la cinta
