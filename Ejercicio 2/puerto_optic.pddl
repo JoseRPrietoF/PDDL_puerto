@@ -38,14 +38,13 @@
 						(at start   (>= (altura ?p) 1) )
 					)
         :effect (and
-				   (at end	 	(not(vacia ?g)))
-				   (at end		(not_vacia ?g))
+				   (at start	(not(vacia ?g)))
+				   (at start	(not_vacia ?g))
 				   (at end	 	(not(on ?c ?base)))
 				   (at end	 	(not (at ?c ?p)))
-				   (at end		(not(top ?c ?p)))
+				   (at start	(not(top ?c ?p)))
 				   (at end	 	(top ?base ?p))
 				   (at end	 	(holding ?g ?c))
-				   (at end	 	(not(vacia ?g)))
 				   (at end   	(decrease (altura ?p) 1 ))
 				)
 	)
@@ -113,8 +112,7 @@
 					(at start	(not_vacia ?g))
 					(at end		(not_ocupada ?ct)) ; la cinta pasa a estar no ocupada
 					(at end		(not(ocupada ?ct)))
-					(at start   (holding ?g ?c))
-					(at start   (not(vacia ?g)))
+					(at end   (holding ?g ?c))
 					(at start   (not(at ?c ?ct))) ; El contenedor ya no esta en la cinta
 				)
 	)
