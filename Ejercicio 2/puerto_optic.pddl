@@ -112,7 +112,7 @@
 					(at start	(not_vacia ?g))
 					(at end		(not_ocupada ?ct)) ; la cinta pasa a estar no ocupada
 					(at end		(not(ocupada ?ct)))
-					(at end   (holding ?g ?c))
+					(at end   	(holding ?g ?c))
 					(at start   (not(at ?c ?ct))) ; El contenedor ya no esta en la cinta
 				)
 	)

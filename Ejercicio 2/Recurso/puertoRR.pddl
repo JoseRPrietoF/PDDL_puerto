@@ -30,9 +30,7 @@
 		:parameters (?g - grua)
 		:duration (= ?duration 2)
         :condition  (and
-					(at start	(not_cargando ?g))
-					;(over all(<= (gasolina ?g) 100)) 
-					;(over all(>= (gasolina ?g) 0)) 
+					(at start	(not_cargando ?g)) 
 		)
         :effect (and 
 					(at start	(not(not_cargando ?g)))

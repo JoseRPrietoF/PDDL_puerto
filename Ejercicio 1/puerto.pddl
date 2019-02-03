@@ -61,11 +61,12 @@
 	)
 	
 	(:action solta_especial
-        :parameters (?base - (either pila contenedor) ?c - contenedor ?p1 - pila ?m - muelle ?g - grua ?alt - altura ?sigalt - altura)
+        :parameters (?base - contenedor ?c - contenedor ?p1 - pila ?m - muelle ?g - grua ?alt - altura ?sigalt - altura)
         :precondition (and 
 						(in ?p1 ?m) ;Si las pilas estan en el mismo muelle
 						(in ?g ?m) ;Si las pilas estan en el mismo muelle
 						(isgoal ?c) ; si la base es goal
+						(isgoal ?base) ; si la base es goal
 						(top ?base ?m) ; escogemos el contenedr dell top
 						(holding ?g ?c) ; grua tiene c
 						(altura_pila ?p1 ?alt) ;comprobamos la altura
