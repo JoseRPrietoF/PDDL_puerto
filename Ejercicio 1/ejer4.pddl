@@ -39,12 +39,12 @@
 		
 		(on c4 p11)
 		(on c5 c4)
-		(top c5 m1)
+		(top c5 p11)
 		(altura_pila p11 n2)
 		
 		; ______ pila 2
 		
-		(top p12 m1)
+		(top p12 p12)
 		(altura_pila p12 n0)
 		
 		; ------ muelle 2
@@ -53,7 +53,7 @@
 		(at c1 p21)
 		(on c1 p21)
 
-		(top c1 m2)
+		(top c1 p21)
 		(altura_pila p21 n1)
 		
 		; ______ pila 2
@@ -62,7 +62,7 @@
 	
 		(on c3 p22)
 		(on c2 c3)
-		(top c2 m2)
+		(top c2 p22)
 		(altura_pila p22 n2)
 
 		
@@ -75,9 +75,9 @@
 	
 	(:goal 
 		(and 
-			(top c4 m1)
-			(top c1 m1)
-			(top c3 m1)
+			(top c4 p11)
+			(top c1 p12)
+			(top c3 p12)
 		)
 	)
 )

@@ -44,7 +44,7 @@
 		
 		(on c1 p11)
 		(on c7 c1)
-		(top c7 m1)
+		(top c7 p11)
 		(altura_pila p11 n2)
 		
 		; ______ pila 2
@@ -53,14 +53,14 @@
 		
 		(on c9 p12)
 		(on c10 c9)
-		(top c10 m1)
+		(top c10 p12)
 		(altura_pila p12 n2)
 		
 		; ______ pila 3
 		(at c11 p13)
 		
 		(on c11 p13)
-		(top c11 m1)
+		(top c11 p13)
 		(altura_pila p12 n1)
 		
 		
@@ -72,7 +72,7 @@
 		
 		(on c4 p21)
 		(on c8 c4)
-		(top c8 m2)
+		(top c8 p21)
 		(altura_pila p21 n2)
 		
 		; ______ pila 2
@@ -83,14 +83,14 @@
 		(on c5 p22)
 		(on c3 c5)
 		(on c2 c3)
-		(top c2 m2)
+		(top c2 p22)
 		(altura_pila p22 n3)
 		
 		; ______ pila 3
 		(at c6 p23)
 		
 		(on c6 p23)
-		(top c6 m2)
+		(top c6 p23)
 		(altura_pila p23 n1)
 
 		
@@ -104,9 +104,9 @@
 	
 	(:goal 
 		(and 
-			(top c4 m1)
-			(top c3 m1)
-			(top c7 m1)
+			(top c4 p11)
+			(top c3 p12)
+			(top c7 p11)
 		)
 	)
 )

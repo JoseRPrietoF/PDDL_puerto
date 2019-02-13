@@ -5,7 +5,7 @@
 	(:predicates (in  ?p - (either pila grua cinta) ?m - muelle) ; control
 				 (notCinta  ?ct - cinta ?m - muelle)
 				 (at  ?c - contenedor ?x - (either pila cinta)) ; esta en
-				 (top ?c - (either pila contenedor) ?m - muelle) ; esta arriba del todo
+				 (top ?c - (either pila contenedor) ?m - pila) ; esta arriba del todo
 				 (on ?c - contenedor ?p - (either pila contenedor)) ; encima de
 				 (ocupada ?ct - cinta)
 				 (not_ocupada ?ct - cinta)
@@ -22,7 +22,7 @@
         :precondition (and 
 						(in ?p1 ?m) ;Si las pilas estan en el mismo muelle
 						(in ?g ?m) ;Si la grua estan en el mismo muelle
-						(top ?c ?m) ;Si el  contenedor esta en el tope de la pila de origen
+						(top ?c ?p1) ;Si el  contenedor esta en el tope de la pila de origen
 						(on ?c ?base) ; seleccionamos lo que hay debajo para cambiar despues
 						(vacia ?g) ; grua esta libre
 						(altura_pila ?p1 ?alt) ;comprobamos la altura
@@ -30,12 +30,13 @@
 					)
         :effect ( and   
 					   (not(vacia ?g))
-					   (not(top ?c ?m))
+					   (not(top ?c ?p1))
 					   (not(on ?c ?base))
 					   (not (at ?c ?p1))
-					   (top ?base ?m)
+					   (top ?base ?p1)
 					   (holding ?g ?c)
 					   (altura_pila ?p1 ?antalt)
+					   (not (altura_pila ?p1 ?alt))
 				)
 	)
 	
@@ -44,7 +45,7 @@
         :precondition (and 
 						(in ?p1 ?m) ;Si las pilas estan en el mismo muelle
 						(in ?g ?m) ;Si las pilas estan en el mismo muelle
-						(top ?base ?m) ; escogemos el contenedr dell top
+						(top ?base ?p1) ; escogemos el contenedr dell top
 						(holding ?g ?c) ; grua tiene c
 						(altura_pila ?p1 ?alt) ;comprobamos la altura
 						(next ?alt ?sigalt)  ; comprobamos el maximo de la pila
@@ -53,9 +54,10 @@
 					   (vacia ?g)
 					   (not (holding ?g ?c))
 					   (at ?c ?p1)
-					   (top ?c ?m)
+					   (top ?c ?p1)
 					   (on ?c ?base)
-					   (not (top ?base ?m))
+					   (not (top ?base ?p1))
+					   (not (altura_pila ?p1 ?alt))
 					   (altura_pila ?p1 ?sigalt)
 				)
 	)
@@ -67,7 +69,7 @@
 						(in ?g ?m) ;Si las pilas estan en el mismo muelle
 						(isgoal ?c) ; si la base es goal
 						(isgoal ?base) ; si la base es goal
-						(top ?base ?m) ; escogemos el contenedr dell top
+						(top ?base ?p1) ; escogemos el contenedr dell top
 						(holding ?g ?c) ; grua tiene c
 						(altura_pila ?p1 ?alt) ;comprobamos la altura
 						(next ?alt ?sigalt)  ; comprobamos el maximo de la pila
@@ -76,8 +78,10 @@
 					   (vacia ?g)
 					   (not (holding ?g ?c))
 					   (at ?c ?p1)
-					   (top ?c ?m)
+					   (top ?c ?p1)
 					   (on ?c ?base)
+					   (not (altura_pila ?p1 ?alt))
+					   (altura_pila ?p1 ?sigalt)
 				)
 	)
 	
