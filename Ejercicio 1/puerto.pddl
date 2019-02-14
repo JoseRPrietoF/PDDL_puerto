@@ -11,7 +11,6 @@
 				 (not_ocupada ?ct - cinta)
 				 (vacia ?g - grua)
 				 (holding ?g - grua ?c - contenedor)
-				 (disponible ?c - contenedor)
 				 (isgoal ?c - contenedor)
 				 (altura_pila ?p - pila ?n - altura)
 				 (next ?alt -altura ?sigalt - altura)
