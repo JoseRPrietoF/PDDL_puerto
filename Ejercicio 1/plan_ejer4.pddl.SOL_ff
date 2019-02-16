@@ -1,0 +1,61 @@
+
+ff: parsing domain file
+domain 'PUERTO' defined
+ ... done.
+ff: parsing problem file
+problem 'PUERTO' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is EHC, if that fails then  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+Cueing down from goal distance:   10 into depth [1]
+                                   9            [1]
+                                   8            [1]
+                                   7            [1][2]
+                                   5            [1][2][3]
+                                   4            [1]
+                                   3            [1][2][3][4][5][6][7][8][9][10][11]
+                                   2            [1]
+                                   1            [1]
+                                   0            
+
+ff: found legal plan as follows
+
+step    0: COGER C3 C2 P22 M2 G2 N1 N2
+        1: COGER C4 C5 P11 M1 G1 N1 N2
+        2: SOLTAR P12 C5 P12 M1 G1 N0 N1
+        3: MOVER_A_CINTA C2 CT2 M2 G2
+        4: COGER P21 C1 P21 M2 G2 N0 N1
+        5: MOVER_A_CINTA C1 CT2 M2 G2
+        6: COGER P22 C3 P22 M2 G2 N0 N1
+        7: MOVER_A_CINTA C3 CT2 M2 G2
+        8: COGER_DESDE_CINTA C1 CT2 M1 G1
+        9: MOVER_A_CINTA C1 CT1 M1 G1
+       10: COGER_DESDE_CINTA C1 CT1 M2 G2
+       11: COGER_DESDE_CINTA C3 CT2 M1 G1
+       12: MOVER_A_CINTA C3 CT1 M1 G1
+       13: COGER P12 C5 P12 M1 G1 N0 N1
+       14: MOVER_A_CINTA C1 CT2 M2 G2
+       15: COGER_DESDE_CINTA C3 CT1 M2 G2
+       16: MOVER_A_CINTA C3 CT2 M2 G2
+       17: MOVER_A_CINTA C5 CT1 M1 G1
+       18: COGER_DESDE_CINTA C1 CT2 M1 G1
+       19: SOLTAR P12 C1 P12 M1 G1 N0 N1
+       20: COGER_DESDE_CINTA C3 CT2 M1 G1
+       21: SOLTA_ESPECIAL C1 C3 P12 M1 G1 N1 N2
+     
+
+time spent:    0.00 seconds instantiating 812 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 139 facts and 812 actions
+               0.00 seconds creating final representation with 137 relevant facts, 0 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 351 states, to a max depth of 11
+               0.00 seconds total time
+
