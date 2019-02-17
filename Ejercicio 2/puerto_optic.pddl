@@ -57,7 +57,7 @@
 						(over all	(in ?g ?m)) ;Si las pilas estan en el mismo muelle
 						(at start	(top ?base ?p)) ; escogemos el contenedr dell top
 						(over all	(holding ?g ?c)) ; grua tiene c
-						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(at start	(> (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
 						(at start   (>= (altura ?p) 1) )
 						(over all 	(not_vacia ?g))
 					)
@@ -82,7 +82,7 @@
 						(over all	(isgoal ?c)) ; si la base es goal
 						(at start	(top ?base ?p)) ; escogemos el contenedr dell top
 						(over all	(holding ?g ?c)) ; grua tiene c
-						(at start	(>= (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
+						(at start	(> (maxaltura ?m) (altura ?p) ) ) ;comprobacion de la altura de la pila
 						(at start   (>= (altura ?p) 1) )
 						(over all 	(not_vacia ?g))
 					)

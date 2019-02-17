@@ -1,0 +1,62 @@
+Number of literals: 129
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+No semaphore facts found, returning
+Seeing if metric is defined in terms of task vars or a minimal value of makespan
+- Yes it is
+Recognised a monotonic-change-induced limit on -1.000*<special>
+- Must be >=  the metric
+[01;34mFor limits: literal goal index 0, fact (top c4 p11), is static or a precondition[00m
+[01;34mFor limits: literal goal index 1, fact (top c1 p11), is static or a precondition[00m
+[01;34mFor limits: literal goal index 2, fact (top c3 p11), is static or a precondition[00m
+4% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 16.000, admissible cost estimate 3.008
+b (13.000 | 1.000)b (12.000 | 5.000)b (11.000 | 6.001)b (8.000 | 9.002)b (7.000 | 11.002)b (6.000 | 11.002)b (5.000 | 14.002)b (4.000 | 15.003)
+Resorting to best-first search
+Running WA* with W = 5.000, not restarting with goal states
+b (15.000 | 2.000)b (13.000 | 1.000)b (12.000 | 2.000)b (10.000 | 5.000)b (9.000 | 11.001)b (8.000 | 11.002)b (7.000 | 13.003)b (6.000 | 13.003)b (5.000 | 16.003)b (4.000 | 16.003)b (2.000 | 18.004)(G)
+; LP calculated the cost
+
+; Plan found with metric 21.006
+; Theoretical reachable cost 21.006
+; States evaluated so far: 393
+; States pruned based on pre-heuristic cost lower bound: 0
+; Time 0.80
+0.000: (coger p21 c1 p21 m2 g2)  [2.000]
+0.000: (coger c4 c5 p11 m1 g1)  [2.000]
+2.000: (mover_a_cinta c5 ct1 m1 g1)  [3.000]
+2.000: (mover_a_cinta c1 ct2 m2 g2)  [3.000]
+5.001: (coger c3 c2 p22 m2 g2)  [1.000]
+5.001: (coger_desde_cinta c1 ct2 m1 g1)  [3.000]
+8.001: (soltar c4 c1 p11 m1 g1)  [3.000]
+8.002: (mover_a_cinta c2 ct2 m2 g2)  [3.000]
+11.003: (coger p22 c3 p22 m2 g2)  [2.000]
+13.003: (mover_a_cinta c3 ct2 m2 g2)  [3.000]
+13.004: (coger_desde_cinta c3 ct2 m1 g1)  [3.000]
+16.004: (solta_especial c1 c3 p11 m1 g1)  [2.000]
+18.005: (coger c4 c1 p11 m1 g1)  [1.000]
+19.006: (solta_especial c3 c1 p11 m1 g1)  [2.000]
+
+ * All goal deadlines now no later than 21.006
+b (2.000 | 16.003)(G)
+; LP calculated the cost
+
+; Plan found with metric 18.004
+; Theoretical reachable cost 18.004
+; States evaluated so far: 434
+; States pruned based on pre-heuristic cost lower bound: 5
+; Time 0.92
+0.000: (coger p21 c1 p21 m2 g2)  [2.000]
+0.000: (coger c4 c5 p11 m1 g1)  [2.000]
+2.000: (mover_a_cinta c5 ct1 m1 g1)  [3.000]
+2.000: (mover_a_cinta c1 ct2 m2 g2)  [3.000]
+5.001: (coger c3 c2 p22 m2 g2)  [1.000]
+5.001: (coger_desde_cinta c1 ct2 m1 g1)  [3.000]
+8.001: (solta_especial c4 c1 p11 m1 g1)  [3.000]
+8.002: (mover_a_cinta c2 ct2 m2 g2)  [3.000]
+11.003: (coger p22 c3 p22 m2 g2)  [2.000]
+13.003: (mover_a_cinta c3 ct2 m2 g2)  [3.000]
+13.004: (coger_desde_cinta c3 ct2 m1 g1)  [3.000]
+16.004: (solta_especial c1 c3 p11 m1 g1)  [2.000]
+
+ * All goal deadlines now no later than 18.004
