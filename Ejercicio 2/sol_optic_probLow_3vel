@@ -1,0 +1,42 @@
+Number of literals: 179
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+No semaphore facts found, returning
+Seeing if metric is defined in terms of task vars or a minimal value of makespan
+- Yes it is
+Recognised a monotonic-change-induced limit on -1.000*<special>
+- Must be >=  the metric
+[01;34mFor limits: literal goal index 0, fact (top c1 p11), is static or a precondition[00m
+[01;34mFor limits: literal goal index 1, fact (top c2 p12), is static or a precondition[00m
+[01;34mFor limits: literal goal index 2, fact (top c3 p11), is static or a precondition[00m
+2% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 8.000, admissible cost estimate 0.004
+b (7.000 | 3.000)b (6.000 | 3.000)
+Resorting to best-first search
+Running WA* with W = 5.000, not restarting with goal states
+b (7.000 | 3.000)b (6.000 | 3.000)b (4.000 | 5.000)b (2.000 | 11.333)b (1.000 | 12.335)(G)
+; LP calculated the cost
+
+; Plan found with metric 12.335
+; Theoretical reachable cost 12.336
+; States evaluated so far: 34
+; States pruned based on pre-heuristic cost lower bound: 0
+; Time 0.08
+0.000: (coger p13 c3 p13 m1 g1)  [3.000]
+3.000: (solta_especial c4 c3 p11 m1 g1)  [2.000]
+5.001: (coger c2 c5 p12 m1 g1)  [2.000]
+7.001: (mover_a_cinta c5 ct1 m1 g1)  [4.333]
+11.335: (coger c1 c4 p11 m1 g1)  [1.000]
+
+ * All goal deadlines now no later than 12.335
+b (1.000 | 12.334)(G)(G)(G)(G)(G)(G)(G)(G)(G)(G)(G)(G)(G)(G)(G)
+Problem Unsolvable
+;;;; Solution Found
+; States evaluated: 1663
+; Cost: 12.335
+; Time 4.82
+0.000: (coger p13 c3 p13 m1 g1)  [3.000]
+3.000: (solta_especial c4 c3 p11 m1 g1)  [2.000]
+5.001: (coger c2 c5 p12 m1 g1)  [2.000]
+7.001: (mover_a_cinta c5 ct1 m1 g1)  [4.333]
+11.335: (coger c1 c4 p11 m1 g1)  [1.000]
