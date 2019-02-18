@@ -1,16 +1,16 @@
 (define (problem puerto)
 	(:domain puerto)
 	(:objects
-		m1 - muelle
-		ct1 - cinta
-		g1 - grua
-		p11 p12 p13 - pila
+		m1 m2 - muelle
+		ct1 ct2 - cinta
+		g1 g2 - grua
+		p11 p12 p13 p21 p22 p23 - pila
 		c1 c2 c3 c4 c5 - contenedor
 )
 	(:init
-		(= (gasolina g1) 30)
-		(= (total-gas-used) 30)
-		(not_cargando g1)
+		(= (gasolina g1) 60)
+		(= (gasolina g2) 60)
+		(= (total-gas-used) 0)
 		;Definimos el peso de las cajas
 		(= (peso c1) 1)(= (peso c2) 1)
 		(= (peso c3) 1)(= (peso c4) 1)
@@ -18,11 +18,18 @@
 		
 		;Definimos la altura de los muelles
 		(=(maxaltura m1) 3)
+		(=(maxaltura m2) 3)
 		
 		;Definimos la distancia y velocidad de las cintas
 		(=(distancia  ct1) 10 )
 		(=(velocidad ct1) 5)
 		(not_ocupada ct1)
+		(=(distancia  ct2) 10 )
+		(=(velocidad ct2) 5)
+		(not_ocupada ct2)
+		
+		(notCinta ct2 m1)	
+		(notCinta ct1 m2)
 		
 		; pilas gruas y cintas en muelles
 		(in ct1 m1)
@@ -32,6 +39,13 @@
 		(in p13 m1)
 		(vacia g1)
 		
+		; muelle 2
+		(in ct2 m2)
+		(in g2 m2)
+		(in p21 m2)
+		(in p22 m2)
+		(in p23 m2)
+		(vacia g2)
 		
 
 		; contenedores en las pilas
@@ -58,7 +72,20 @@
 		; ______
 		(on c3 p13)
 		(top c3 p13)
-		(=(altura p13) 1) 
+		(=(altura p13) 1)
+		
+		; ------ MUELLE 2
+		; ______ PILA 21 ______
+		(top p21 p21)
+		(=(altura p21) 0) 
+		
+		; ______ PILA 22 ______
+		(top p22 p22)
+		(=(altura p22) 0) 
+		
+		; ______ PILA 23 ______
+		(top p23 p23)
+		(=(altura p23) 0) 
 		
 		
 
@@ -72,11 +99,8 @@
 		(and 
 			(top c1 p11)
 			(top c2 p12)
-			(top c3 p13)
-			;(vacia g1)
-			;(not_ocupada ct1)
+			(top c3 p11)
 		)
 	)
-	;(:metric minimize (total-gas-used))
 	(:metric minimize (total-time))
 )
