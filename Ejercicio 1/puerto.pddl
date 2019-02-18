@@ -90,11 +90,13 @@
 						(in ?g ?m) ; La grua esta en el mismo muelle
 						(at ?c ?ct) ; el contenedor esta en la cinta
 						(notCinta ?ct ?m) ; y no es la cinta de tu muelle
+						(ocupada ?ct)
 						(vacia ?g)
 					)
         :effect ( and  
 						(not(vacia ?g))
 						(not_ocupada ?ct) ; la cinta pasa a estar no ocupada
+						(not(ocupada ?ct))
 						(holding ?g ?c)
 						(not(at ?c ?ct)) ; El contenedor ya no esta en la cinta
 				)
@@ -111,6 +113,7 @@
         :effect (and
 					(at ?c ?ct) ; el contenedor pasa a estar en la cinta
 					(ocupada ?ct) ; la cinta pasa a estar ocupada
+					(not(not_ocupada ?ct))
 					(not(holding ?g ?c))
 					(vacia ?g)
 				)
