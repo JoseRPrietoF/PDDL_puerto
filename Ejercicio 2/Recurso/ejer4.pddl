@@ -8,8 +8,8 @@
 		c1 c2 c3 c4 c5 - contenedor
 )
 	(:init
-		(= (gasolina g1) 100)
-		(= (gasolina g2) 100)
+		(= (gasolina g1) 30)
+		(= (gasolina g2) 30)
 		(= (total-gas-used) 0)
 		;Definimos el peso de las cajas
 		(= (peso c1) 1)(= (peso c2) 1)
