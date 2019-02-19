@@ -8,13 +8,16 @@
 		c1 c2 c3 c4 c5 - contenedor
 )
 	(:init
-		(= (gasolina g1) 60)
-		(= (gasolina g2) 60)
+		(= (gasolina g1) 120)
+		(= (gasolina g2) 120)
 		(= (total-gas-used) 0)
 		;Definimos el peso de las cajas
 		(= (peso c1) 1)(= (peso c2) 1)
 		(= (peso c3) 1)(= (peso c4) 1)
 		(= (peso c5) 1)
+		
+		(not_cargando g1)
+		(not_cargando g2)
 		
 		;Definimos la altura de los muelles
 		(=(maxaltura m1) 3)
@@ -103,4 +106,5 @@
 		)
 	)
 	(:metric minimize (total-time))
+	;(:metric minimize (total-gas-used))
 )

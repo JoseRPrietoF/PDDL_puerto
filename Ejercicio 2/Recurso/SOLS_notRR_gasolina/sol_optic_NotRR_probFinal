@@ -1,0 +1,50 @@
+Number of literals: 407
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+No semaphore facts found, returning
+(gasolina g1) has a finite upper bound: [-inf,120.000]
+(gasolina g2) has a finite upper bound: [-inf,120.000]
+(total-gas-used) has a finite lower bound: [0.000,inf]
+Have identified that bigger values of (gasolina g1) are preferable
+Have identified that bigger values of (gasolina g2) are preferable
+Seeing if metric is defined in terms of task vars or a minimal value of makespan
+- Yes it is
+Recognised a monotonic-change-induced limit on -1.000*var2(total-gas-used)
+- Must be >=  the metric
+[01;34mFor limits: literal goal index 0, fact (top c4 p12), is static or a precondition[00m
+[01;34mFor limits: literal goal index 1, fact (top c3 p13), is static or a precondition[00m
+[01;34mFor limits: literal goal index 2, fact (top c7 p23), is static or a precondition[00m
+Effect 0 gives a metric time-dependent update
+Effect 15 gives a metric time-dependent update
+0% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 36.000, admissible cost estimate 0.000
+b (35.000 | 1.000)b (34.000 | 4.000)b (33.000 | 4.001)b (30.000 | 6.001)b (29.000 | 6.002)b (25.000 | 6.002)b (23.000 | 9.003)b (22.000 | 9.003)b (21.000 | 9.003)b (20.000 | 11.003)b (18.000 | 14.004)b (17.000 | 14.005)b (14.000 | 16.006)b (7.000 | 20.008)b (6.000 | 23.007)b (5.000 | 23.008)b (4.000 | 23.007)b (3.000 | 23.008)b (2.000 | 23.008)b (1.000 | 25.009)(G)
+; LP calculated the cost
+
+; Plan found with metric 125.000
+; Theoretical reachable cost 125.000
+; States evaluated so far: 124
+; States pruned based on pre-heuristic cost lower bound: 0
+; Time 1.48
+0.000: (coger c3 c2 p22 m2 g2)  [1.000]
+0.000: (coger c1 c7 p11 m1 g1)  [2.000]
+1.001: (soltar c6 c2 p23 m2 g2)  [3.000]
+2.001: (mover_a_cinta c7 ct1 m1 g1)  [3.000]
+4.002: (coger c5 c3 p22 m2 g2)  [2.000]
+5.002: (coger p11 c1 p11 m1 g1)  [3.000]
+6.003: (mover_a_cinta c3 ct2 m2 g2)  [3.000]
+8.003: (soltar c11 c1 p13 m1 g1)  [3.000]
+9.004: (coger c4 c8 p21 m2 g2)  [2.000]
+11.005: (mover_a_cinta c8 ct2 m2 g2)  [3.000]
+11.005: (coger_desde_cinta c3 ct2 m1 g1)  [3.000]
+14.006: (soltar c1 c3 p13 m1 g1)  [2.000]
+14.006: (coger p21 c4 p21 m2 g2)  [3.000]
+17.007: (mover_a_cinta c4 ct2 m2 g2)  [3.000]
+17.008: (coger_desde_cinta c4 ct2 m1 g1)  [3.000]
+20.008: (coger_desde_cinta c7 ct1 m2 g2)  [3.000]
+20.009: (soltar c10 c4 p12 m1 g1)  [2.000]
+23.009: (soltar c2 c7 p23 m2 g2)  [2.000]
+
+Resorting to best-first search
+Running WA* with W = 5.000, not restarting with goal states
+b (35.000 | 2.000)b (35.000 | 1.000)b (32.000 | 6.001)b (31.000 | 6.002)b (30.000 | 9.003)b (28.000 | 9.003)b (27.000 | 9.003)b (26.000 | 9.003)b (23.000 | 11.003)b (23.000 | 10.003)b (22.000 | 12.004)b (21.000 | 14.004)b (20.000 | 14.005)b (19.000 | 15.005)b (17.000 | 16.006)b (15.000 | 20.008)b (14.000 | 20.008)b (13.000 | 23.009)b (12.000 | 26.010)b (11.000 | 29.011)b (7.000 | 29.011)b (7.000 | 26.010)b (6.000 | 29.011)b (6.000 | 28.011)b (5.000 | 27.011)

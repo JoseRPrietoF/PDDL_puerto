@@ -14,8 +14,9 @@
 				 (holding ?g - grua ?c - contenedor)
 				 (disponible ?c - contenedor)
 				 (isgoal ?c - contenedor)
-				 (not_cargando ?g - grua)
+				 (not_cargando ?g - grua) ; No se usa pero se anyade por compatibilida con puerto RR
 	)
+	
 	(:functions (peso ?c - contenedor) ;Control del peso de la caja C
 				(maxaltura ?m - muelle) ;Control de la altura maxima permitida de una muelle
 				(altura ?p - pila) ;Control de altura en la pila
