@@ -119,7 +119,7 @@
 		(and 
 			(top c4 p12)
 			(top c3 p13)
-			(top c7 p23)
+			(top c7 p13)
 		)
 	)
 	(:metric minimize (total-time))
