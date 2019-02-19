@@ -97,6 +97,6 @@
 		)
 	)
 	
-	(:metric minimize (total-time))
-	;(:metric minimize (total-gas-used))
+	;(:metric minimize (total-time))
+	(:metric minimize (total-gas-used))
 )
