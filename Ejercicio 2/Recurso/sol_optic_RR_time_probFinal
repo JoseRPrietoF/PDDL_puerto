@@ -11,10 +11,42 @@ Recognised a monotonic-change-induced limit on -1.000*<special>
 - Must be >=  the metric
 [01;34mFor limits: literal goal index 0, fact (top c4 p12), is static or a precondition[00m
 [01;34mFor limits: literal goal index 1, fact (top c3 p13), is static or a precondition[00m
-[01;34mFor limits: literal goal index 2, fact (top c7 p23), is static or a precondition[00m
+[01;34mFor limits: literal goal index 2, fact (top c7 p13), is static or a precondition[00m
 0% of the ground temporal actions in this problem are compression-safe
-Initial heuristic = 40.000, admissible cost estimate 3.008
-b (37.000 | 1.000)b (35.000 | 4.000)b (24.000 | 4.001)b (23.000 | 4.002)b (22.000 | 7.004)b (21.000 | 7.004)b (20.000 | 13.006)b (19.000 | 13.006)b (17.000 | 19.009)b (16.000 | 29.011)b (15.000 | 33.013)b (13.000 | 33.013)b (12.000 | 34.012)b (11.000 | 36.013)b (10.000 | 36.013)b (8.000 | 40.014)b (7.000 | 41.015)b (6.000 | 43.015)b (4.000 | 46.016)
+Initial heuristic = 32.000, admissible cost estimate 3.008
+b (29.000 | 1.000)b (28.000 | 4.000)b (27.000 | 5.000)b (24.000 | 5.000)b (23.000 | 6.001)b (22.000 | 6.002)b (21.000 | 9.003)b (20.000 | 9.003)b (19.000 | 9.003)b (18.000 | 9.003)b (17.000 | 11.003)b (16.000 | 12.003)b (15.000 | 12.004)b (13.000 | 14.005)b (11.000 | 18.007)b (10.000 | 30.010)b (8.000 | 34.011)b (7.000 | 35.012)b (6.000 | 41.013)
 Resorting to best-first search
 Running WA* with W = 5.000, not restarting with goal states
-b (39.000 | 2.000)b (37.000 | 1.000)b (35.000 | 4.000)b (24.000 | 4.001)b (23.000 | 4.002)b (20.000 | 11.004)b (18.000 | 16.006)b (14.000 | 19.007)b (13.000 | 19.008)b (11.000 | 36.014)b (11.000 | 36.013)b (10.000 | 25.009)b (9.000 | 25.009)b (7.000 | 26.010)b (5.000 | 38.008)
+b (31.000 | 2.000)b (29.000 | 2.000)b (29.000 | 1.000)b (28.000 | 2.000)b (25.000 | 2.000)b (24.000 | 5.001)b (21.000 | 6.001)b (20.000 | 9.003)b (16.000 | 9.004)b (15.000 | 9.004)b (12.000 | 14.005)b (11.000 | 14.006)b (9.000 | 20.008)b (8.000 | 32.010)b (6.000 | 32.010)b (5.000 | 44.013)b (4.000 | 44.013)b (3.000 | 32.010)b (2.000 | 32.010)(G)
+; LP calculated the cost
+
+; Plan found with metric 34.011
+; Theoretical reachable cost 34.011
+; States evaluated so far: 77506
+; States pruned based on pre-heuristic cost lower bound: 0
+; Time 811.70
+0.000: (coger c4 c8 p21 m2 g2)  [2.000]
+0.000: (coger c1 c7 p11 m1 g1)  [2.000]
+2.001: (mover_a_cinta c8 ct2 m2 g2)  [3.000]
+2.001: (soltar c11 c7 p13 m1 g1)  [3.000]
+5.002: (coger c3 c2 p22 m2 g2)  [1.000]
+5.002: (coger p11 c1 p11 m1 g1)  [3.000]
+6.003: (mover_a_cinta c2 ct2 m2 g2)  [3.000]
+8.003: (soltar c7 c1 p13 m1 g1)  [2.000]
+9.004: (coger c5 c3 p22 m2 g2)  [2.000]
+11.005: (mover_a_cinta c3 ct2 m2 g2)  [3.000]
+14.006: (coger p21 c4 p21 m2 g2)  [3.000]
+17.007: (mover_a_cinta c4 ct2 m2 g2)  [3.000]
+17.008: (coger_desde_cinta c4 ct2 m1 g1)  [3.000]
+20.007: (recargar g2)  [2.000]
+20.009: (solta_especial c10 c4 p12 m1 g1)  [2.000]
+22.008: (coger p23 c6 p23 m2 g2)  [3.000]
+22.010: (coger c7 c1 p13 m1 g1)  [1.000]
+23.011: (soltar c10 c1 p12 m1 g1)  [1.000]
+25.008: (recargar g2)  [2.000]
+27.009: (recargar g2)  [2.000]
+29.010: (mover_a_cinta c6 ct2 m2 g2)  [3.000]
+29.010: (coger_desde_cinta c3 ct2 m1 g1)  [3.000]
+32.011: (solta_especial c7 c3 p13 m1 g1)  [2.000]
+
+ * All goal deadlines now no later than 34.011
