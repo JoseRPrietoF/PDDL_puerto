@@ -1,0 +1,32 @@
+Number of literals: 55
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+No semaphore facts found, returning
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+Initial heuristic = 4.000, admissible cost estimate 0.000
+b (3.000 | 0.000)b (2.000 | 0.001)b (1.000 | 0.002)(G)
+; No metric specified - using makespan
+
+; Plan found with metric 0.003
+; States evaluated so far: 5
+; States pruned based on pre-heuristic cost lower bound: 0
+; Time 0.00
+0.000: (coger c2 c1 p1 m1 g1 n1 n2)  [0.001]
+0.001: (mover_a_cinta c1 ct1 m1 g1)  [0.001]
+0.002: (coger_desde_cinta c1 ct1 m2 g2)  [0.001]
+0.003: (soltar c3 c1 p2 m2 g2 n0 n1)  [0.001]
+
+ * All goal deadlines now no later than 0.003
+
+Resorting to best-first search
+Running WA* with W = 5.000, not restarting with goal states
+b (3.000 | 0.000)b (2.000 | 0.001)b (1.000 | 0.002)(G)b (0.000 | 0.003)(G)(G)(G)(G)(G)
+Problem Unsolvable
+;;;; Solution Found
+; States evaluated: 27
+; Cost: 0.003
+; Time 0.00
+0.000: (coger c2 c1 p1 m1 g1 n1 n2)  [0.001]
+0.001: (mover_a_cinta c1 ct1 m1 g1)  [0.001]
+0.002: (coger_desde_cinta c1 ct1 m2 g2)  [0.001]
+0.003: (soltar c3 c1 p2 m2 g2 n0 n1)  [0.001]

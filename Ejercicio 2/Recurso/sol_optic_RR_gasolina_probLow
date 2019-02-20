@@ -1,19 +1,0 @@
-Number of literals: 181
-Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
-Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
-No semaphore facts found, returning
-(total-gas-used) has a finite lower bound: [0.000,inf]
-Have identified that bigger values of (gasolina g1) are preferable
-Have identified that bigger values of (gasolina g2) are preferable
-Seeing if metric is defined in terms of task vars or a minimal value of makespan
-- Yes it is
-Recognised a monotonic-change-induced limit on -1.000*var2(total-gas-used)
-- Must be >=  the metric
-[01;34mFor limits: literal goal index 0, fact (top c1 p11), is static or a precondition[00m
-[01;34mFor limits: literal goal index 1, fact (top c2 p12), is static or a precondition[00m
-[01;34mFor limits: literal goal index 2, fact (top c3 p11), is static or a precondition[00m
-Effect 2 gives a metric time-dependent update
-Effect 17 gives a metric time-dependent update
-0% of the ground temporal actions in this problem are compression-safe
-Initial heuristic = 8.000, admissible cost estimate 0.000
-b (7.000 | 3.000)b (6.000 | 3.000)
